@@ -56,7 +56,7 @@ export function App() {
   };
 
   return (
-    <div className="flex flex-col h-full font-sans antialiased overflow-x-hidden">
+    <div className="flex flex-col h-full font-sans antialiased overflow-x-hidden w-full max-w-[1400px] mx-auto">
       {/* Header */}
       <header className="sticky top-0 z-20 p-2 sm:p-3 shadow-lg border-b bg-[#fdfdfd] border-draft-stroke/40 backdrop-blur-md">
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
@@ -135,7 +135,7 @@ export function App() {
         </motion.div>
 
         {/* Área de visualização da planta */}
-        <div className="flex-1 p-2 sm:p-3 lg:p-4 overflow-y-auto flex flex-col items-center min-w-0">
+        <div className="flex-1 p-2 sm:p-3 lg:p-4 overflow-y-auto flex flex-col items-center min-w-0 w-full">
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}

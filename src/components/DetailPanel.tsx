@@ -119,7 +119,7 @@ export function DetailPanel({ componentId, visited, onClose, onNavigate }: Detai
       animate={{ x: 0, opacity: 1 }}
       exit={{ x: '-100%', opacity: 0 }}
       transition={{ type: 'spring', stiffness: 240, damping: 28 }}
-      className="glass-panel flex flex-col fixed top-0 left-0 h-full w-full md:w-[90vw] lg:w-[576px] xl:w-[640px] z-50 shadow-2xl overflow-x-hidden bg-draft-paper text-black"
+      className="glass-panel flex flex-col fixed top-0 left-0 h-full w-full md:w-[85vw] lg:w-[600px] xl:w-[700px] z-50 shadow-2xl overflow-x-hidden bg-draft-paper text-black"
       role="dialog"
       aria-label={comp.detailTitle}
       ref={focusTrapRef}

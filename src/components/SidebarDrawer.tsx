@@ -29,7 +29,7 @@ export function SidebarDrawer({ selectedId, visited, onSelect, isOpen, onClose }
             animate={{ x: 0 }}
             exit={{ x: '-100%' }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="fixed top-0 left-0 h-full w-72 z-50 lg:hidden"
+            className="fixed top-0 left-0 h-full w-72 sm:w-80 z-50 lg:hidden"
             aria-label="Lista de componentes (mobile)"
           >
             <div className="flex justify-between items-center p-4 border-b border-slate-700/50 bg-slate-800/90 backdrop-blur-xl">

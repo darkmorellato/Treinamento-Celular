@@ -46,7 +46,7 @@ export function CompletionScreen({ show, onClose, onRestart, onStartQuiz, traini
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 30 }}
             transition={{ type: 'spring', stiffness: 160, damping: 18 }}
-            className="max-w-lg w-full bg-draft-paper rounded-3xl p-6 md:p-8 relative text-center overflow-hidden border border-slate-700"
+            className="max-w-lg w-full bg-draft-paper rounded-3xl p-5 sm:p-6 md:p-8 relative text-center overflow-hidden border border-slate-700 max-h-[90vh] overflow-y-auto"
           >
             <button
               onClick={onClose}

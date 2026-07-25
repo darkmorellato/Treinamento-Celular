@@ -209,8 +209,8 @@ export function SmartphoneDiagram({ onHotspotClick, selectedId, visited }: Smart
                 style={{
                   left: `${spot.x}%`,
                   top: `${spot.y}%`,
-                  width: '28px',
-                  height: '28px',
+                  width: 'clamp(20px, 3.5vw, 28px)',
+                  height: 'clamp(20px, 3.5vw, 28px)',
                   backgroundColor: bg,
                   border: `2px solid ${borderColor}`,
                   boxShadow: isSelected
@@ -218,7 +218,7 @@ export function SmartphoneDiagram({ onHotspotClick, selectedId, visited }: Smart
                     : '0 0 15px rgba(70, 70, 72, 0.8)',
                   transform: 'translate(-50%, -50%)',
                   zIndex: isSelected ? 20 : 10,
-                  fontSize: '13px',
+                  fontSize: 'clamp(10px, 1.6vw, 13px)',
                   transition: 'background-color 0.3s ease, box-shadow 0.3s ease',
                 }}
                 initial={{ opacity: 0, scale: 0.6 }}
@@ -239,8 +239,8 @@ export function SmartphoneDiagram({ onHotspotClick, selectedId, visited }: Smart
                     style={{
                       backgroundColor: isJustVisited ? '#eab308' : '#22c55e',
                       color: '#FFFFFF',
-                      width: '16px',
-                      height: '16px',
+                      width: 'clamp(12px, 2vw, 16px)',
+                      height: 'clamp(12px, 2vw, 16px)',
                     }}
                   >
                     ✓

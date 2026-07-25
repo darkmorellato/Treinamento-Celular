@@ -102,8 +102,8 @@ export function AudioPlayer({ src }: { src: string }) {
         aria-pressed={isPlaying}
         style={{
           position: 'relative',
-          width: '72px',
-          height: '72px',
+          width: 'clamp(48px, 8vw, 72px)',
+          height: 'clamp(48px, 8vw, 72px)',
           border: '0px solid transparent',
           padding: 0,
           background: 'transparent',
@@ -123,8 +123,8 @@ export function AudioPlayer({ src }: { src: string }) {
           onDragStart={preventDragStart}
           onDrag={preventDragStart}
           style={{
-            width: '72px',
-            height: '72px',
+            width: 'clamp(48px, 8vw, 72px)',
+            height: 'clamp(48px, 8vw, 72px)',
             borderRadius: '50%',
             objectFit: 'cover',
             border: '0px solid transparent',
@@ -146,8 +146,8 @@ export function AudioPlayer({ src }: { src: string }) {
             position: 'absolute',
             top: '50%',
             left: '50%',
-            width: '18px',
-            height: '18px',
+            width: 'clamp(12px, 2vw, 18px)',
+            height: 'clamp(12px, 2vw, 18px)',
             transform: 'translate(-50%, -50%)',
             borderRadius: '50%',
             background: 'radial-gradient(circle at 35% 35%, #3b1a04, #1a0800)',
@@ -162,12 +162,12 @@ export function AudioPlayer({ src }: { src: string }) {
           display: 'flex',
           flexDirection: 'column',
           gap: '0.35rem',
-          maxWidth: '190px',
+          maxWidth: 'clamp(120px, 20vw, 190px)',
         }}
       >
         <span
           style={{
-            fontSize: '0.8rem',
+            fontSize: 'clamp(0.7rem, 1.2vw, 0.8rem)',
             fontWeight: 600,
             color: '#f1f5f9',
             letterSpacing: '0.06em',
@@ -178,7 +178,7 @@ export function AudioPlayer({ src }: { src: string }) {
         </span>
         <span
           style={{
-            fontSize: '0.7rem',
+            fontSize: 'clamp(0.6rem, 1vw, 0.7rem)',
             fontFamily: 'ui-monospace, monospace',
             color: '#cbd5e1',
           }}
@@ -188,7 +188,7 @@ export function AudioPlayer({ src }: { src: string }) {
         <div
           style={{
             width: '100%',
-            height: '4px',
+            height: 'clamp(2px, 0.3vw, 4px)',
             borderRadius: '2px',
             background: 'rgba(255,255,255,0.08)',
             overflow: 'hidden',

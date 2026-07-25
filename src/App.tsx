@@ -185,7 +185,7 @@ export function App() {
       </main>
 
       {/* Player no canto inferior direito */}
-      <div className="fixed bottom-1 sm:bottom-1 right-3 sm:right-0 z-50 bg-[#7f7f7f] p-2 rounded-2xl border border-white/10 shadow-xl backdrop-blur-md scale-80">
+      <div className="fixed bottom-2 sm:bottom-2 right-2 sm:right-4 z-50 bg-[#7f7f7f]/90 p-1.5 sm:p-2 rounded-2xl border border-white/10 shadow-xl backdrop-blur-md scale-75 sm:scale-80">
         <AudioPlayer src="/mog.mp3" />
       </div>
 

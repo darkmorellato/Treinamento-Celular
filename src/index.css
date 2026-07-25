@@ -97,6 +97,7 @@
     height: 100%;
     max-width: 100vw;
     overflow-x: hidden;
+    font-size: 100%;
   }
 
   body {
@@ -108,6 +109,9 @@
     color: var(--color-text-primary);
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   #root {
@@ -115,6 +119,9 @@
     height: 100%;
     max-width: 100vw;
     overflow-x: hidden;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -223,5 +230,67 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+
+  .blueprint-wrapper {
+    aspect-ratio: 8 / 6.5;
+    max-height: calc(100vh - 300px);
+  }
+
+  #root > div {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  html {
+    font-size: 15px;
+  }
+
+  .blueprint-wrapper {
+    aspect-ratio: 8 / 6.5;
+    max-height: calc(100vh - 340px);
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1536px) {
+  html {
+    font-size: 16px;
+  }
+
+  .blueprint-wrapper {
+    aspect-ratio: 8 / 6.5;
+    max-height: calc(100vh - 360px);
+  }
+}
+
+@media (min-width: 1537px) {
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #root {
+    max-width: 90vw;
+    width: 90vw;
+    margin: 0 auto;
+  }
+
+  .blueprint-wrapper {
+    aspect-ratio: 8 / 6.5;
+    max-height: calc(100vh - 380px);
+    max-width: 100%;
   }
 }

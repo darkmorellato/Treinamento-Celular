@@ -162,24 +162,24 @@ export function QuizScreen({ questions, onClose, onRestartTraining }: QuizScreen
                   </p>
                 </div>
 
-                <div className="bg-[#FFFFFF] rounded-lg border border-slate-700 p-2">
-                  <div className="flex items-center gap-1 mb-1">
+                <div className="bg-[#FFFFFF] rounded-lg border border-slate-700 p-2 sm:p-3">
+                  <div className="flex items-center gap-1 mb-2">
                     <BookOpen className="w-3 h-3 text-[#4169e1]" />
-                    <h4 className="text-[11px] font-semibold text-black uppercase tracking-wide">Desempenho por componente</h4>
+                    <h4 className="text-[11px] sm:text-xs font-semibold text-black uppercase tracking-wide">Desempenho por componente</h4>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-1">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {componentStats.map((c) => {
                       const pct = Math.round((c.correct / c.total) * 100);
                       const isWeak = pct < 70;
                       return (
-                        <div key={c.id} className="flex flex-col gap-0.5">
-                          <div className="flex items-baseline justify-between gap-2">
-                            <span className="text-[11px] text-black truncate">{c.label}</span>
-                            <span className={`text-[11px] font-bold tabular-nums ${isWeak ? 'text-[#ff6347]' : 'text-[#4169e1]'}`}>
+                        <div key={c.id} className="space-y-1">
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="text-[11px] sm:text-xs text-black truncate">{c.label}</span>
+                            <span className={`text-[11px] sm:text-xs font-bold tabular-nums ${isWeak ? 'text-[#ff6347]' : 'text-[#4169e1]'}`}>
                               {pct}%
                             </span>
                           </div>
-                          <div className="w-full h-1 rounded bg-slate-700/50 overflow-hidden">
+                          <div className="w-full h-1.5 rounded bg-slate-700/50 overflow-hidden">
                             <motion.div
                               className={`h-full rounded ${isWeak ? 'bg-[#ff6347]' : 'bg-[#4169e1]'}`}
                               initial={{ width: '0%' }}
@@ -211,34 +211,6 @@ export function QuizScreen({ questions, onClose, onRestartTraining }: QuizScreen
                     </p>
                   </div>
                 )}
-
-                <div className="flex flex-col sm:flex-row gap-1.5">
-                  <motion.button
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.99 }}
-                    onClick={handleRestartQuiz}
-                    className="flex-1 flex items-center justify-center gap-1.5 py-1.5 bg-[#FFFFFF] text-black text-sm font-medium rounded-lg border border-slate-700 hover:border-[#4169e1] transition-colors"
-                  >
-                    <RotateCcw className="w-3.5 h-3.5" />
-                    Refazer Quiz
-                  </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.99 }}
-                    onClick={onRestartTraining}
-                    className="flex-1 py-1.5 bg-[#4169e1] text-white text-sm font-semibold rounded-lg hover:bg-[#2444b4] transition-colors"
-                  >
-                    Refazer Treinamento
-                  </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.99 }}
-                    onClick={onClose}
-                    className="flex-1 py-1.5 bg-[#FFFFFF] text-black text-sm font-medium rounded-lg border border-slate-700 hover:border-[#4169e1] transition-colors"
-                  >
-                    Fechar
-                  </motion.button>
-                </div>
               </motion.div>
           ) : current ? (
               <motion.div

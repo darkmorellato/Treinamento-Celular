@@ -96,16 +96,16 @@ export function QuizScreen({ questions, onClose, onRestartTraining }: QuizScreen
     >
       <motion.div
         ref={focusTrapRef}
-        className="max-w-[58rem] w-full max-h-[92dvh] overflow-hidden flex flex-col bg-draft-paper rounded-3xl p-5 sm:p-6 md:p-8 relative border border-slate-700 mx-auto"
+        className="max-w-[58rem] w-full max-h-[92dvh] overflow-hidden flex flex-col bg-draft-paper rounded-3xl relative border border-slate-700 mx-auto"
         initial={{ scale: 0.95, opacity: 0, y: 20 }}
         animate={{ scale: 1, opacity: 1, y: 0 }}
         exit={{ scale: 0.95, opacity: 0, y: 20 }}
         transition={{ type: 'spring', stiffness: 180, damping: 20 }}
       >
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center justify-between p-4 sm:p-6 border-b border-slate-700/50 shrink-0">
           <div>
-            <h2 className="text-xl font-bold text-black">Quiz</h2>
-            <p className="text-[11px] text-black/70 mt-0.5">
+            <h2 className="text-lg sm:text-xl font-bold text-black">Quiz</h2>
+            <p className="text-[11px] sm:text-xs text-black/70 mt-0.5">
               {status === 'analysis' ? 'Análise de desempenho' : status === 'result' ? 'Resultado final' : `Questão ${currentIndex + 1} de ${totalQuestions}`}
             </p>
           </div>
@@ -119,7 +119,7 @@ export function QuizScreen({ questions, onClose, onRestartTraining }: QuizScreen
         </div>
 
         {status === 'active' && (
-          <div className="mb-4">
+          <div className="px-4 sm:px-6 pt-3 sm:pt-4 shrink-0">
             <div className="w-full h-2 rounded bg-slate-700/50 overflow-hidden">
               <motion.div
                 className="h-full rounded bg-[#4169e1]"
@@ -135,8 +135,9 @@ export function QuizScreen({ questions, onClose, onRestartTraining }: QuizScreen
           </div>
         )}
 
-        <div className="flex-1 -mx-1 px-1">
-        <AnimatePresence mode="wait">
+        <div className="flex-1 min-h-0 overflow-y-auto scrollbar-hide overscroll-contain">
+          <div className="p-4 sm:p-6">
+            <AnimatePresence mode="wait">
           {status === 'analysis' ? (
               <motion.div
                 key="quiz-analysis"
@@ -298,9 +299,9 @@ export function QuizScreen({ questions, onClose, onRestartTraining }: QuizScreen
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.2 }}
-                      className="flex items-center justify-between pt-2"
+                      className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2 pt-2 sm:pt-3"
                     >
-                      <div className="text-sm text-black/80">
+                      <div className="text-xs sm:text-sm text-black/80">
                         {selectedOption === current.correctIndex ? (
                           <span className="text-[#4169e1]">Correto!</span>
                         ) : (
@@ -313,7 +314,7 @@ export function QuizScreen({ questions, onClose, onRestartTraining }: QuizScreen
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         onClick={currentIndex < questions.length - 1 ? handleNext : handleFinish}
-                        className="flex items-center gap-2 px-4 py-2.5 bg-[#4169e1] text-white font-semibold rounded-xl hover:bg-[#2444b4] transition-colors"
+                        className="flex items-center justify-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 bg-[#4169e1] text-white text-sm font-semibold rounded-xl hover:bg-[#2444b4] transition-colors shrink-0"
                       >
                         {currentIndex < questions.length - 1 ? (
                           <>Próxima <ChevronRight className="w-4 h-4" /></>
@@ -326,7 +327,40 @@ export function QuizScreen({ questions, onClose, onRestartTraining }: QuizScreen
             </motion.div>
           ) : null}
         </AnimatePresence>
+          </div>
         </div>
+
+        {status === 'analysis' && (
+          <div className="p-3 sm:p-5 border-t border-slate-700/50 bg-[#FFFFFF] shrink-0">
+            <div className="flex flex-col sm:flex-row gap-2">
+              <motion.button
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.99 }}
+                onClick={handleRestartQuiz}
+                className="flex-1 flex items-center justify-center gap-1.5 py-2 bg-[#FFFFFF] text-black text-sm font-medium rounded-lg border border-slate-700 hover:border-[#4169e1] transition-colors"
+              >
+                <RotateCcw className="w-3.5 h-3.5" />
+                Refazer Quiz
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.99 }}
+                onClick={onRestartTraining}
+                className="flex-1 py-2 bg-[#4169e1] text-white text-sm font-semibold rounded-lg hover:bg-[#2444b4] transition-colors"
+              >
+                Refazer Treinamento
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.99 }}
+                onClick={onClose}
+                className="flex-1 py-2 bg-[#FFFFFF] text-black text-sm font-medium rounded-lg border border-slate-700 hover:border-[#4169e1] transition-colors"
+              >
+                Fechar
+              </motion.button>
+            </div>
+          </div>
+        )}
       </motion.div>
     </motion.div>
   );

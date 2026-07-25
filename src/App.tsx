@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Microchip, Menu, PartyPopper, RotateCcw, Brain } from "lucide-react";
+import { Menu, PartyPopper } from "lucide-react";
 import { useTraining } from "./hooks/useTraining";
 import { SmartphoneDiagram } from "./components/SmartphoneDiagram";
 import { DetailPanel } from "./components/DetailPanel";
@@ -58,42 +58,37 @@ export function App() {
   return (
     <div className="flex flex-col h-full font-sans antialiased overflow-x-hidden">
       {/* Header */}
-      <header className="sticky top-0 z-20 p-2 sm:p-3 shadow-lg border-b bg-slate-800/80 border-slate-700/50 backdrop-blur-md">
+      <header className="sticky top-0 z-20 p-2 sm:p-3 shadow-lg border-b bg-[#fdfdfd] border-draft-stroke/40 backdrop-blur-md">
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center space-x-4 w-full md:w-auto min-w-0">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center shadow-lg shadow-brand-500/30 border border-brand-300/20 shrink-0">
-              <Microchip className="w-7 h-7 text-white" />
-            </div>
+            <img src="/icones/soc.png" alt="Onboarding Técnico" className="w-10 h-10 shrink-0" />
             <div className="flex-1 min-w-0">
-              <h1 className="text-xl md:text-2xl font-bold text-white tracking-tight truncate">
+              <h1 className="text-xl md:text-2xl font-bold text-draft-ink tracking-tight truncate">
                 Onboarding Técnico
               </h1>
-              <p className="text-sm text-brand-100/70 font-medium truncate">
+              <p className="text-sm text-draft-subtext font-medium truncate">
                 Arquitetura de Dispositivos Móveis
               </p>
             </div>
           </div>
 
           <div className="flex items-center gap-3 w-full md:w-auto">
-            <div className="w-full md:w-64 bg-slate-800/50 p-3 rounded-lg border border-slate-700/50">
-              <div className="flex justify-between text-xs font-semibold text-slate-300 mb-1">
-                <span className="truncate">Progresso do Estudo</span>
+            <div className="w-full md:w-64 bg-[#f8f8f8] p-3 rounded-lg border border-black">
+              <div className="flex justify-between text-xs font-semibold text-[#00a86b]">
+                <span className="truncate text-[#2B2D42]">Progresso do Estudo</span>
                 <span
                   className={
                     allVisited
-                      ? "text-success flex items-center gap-1"
-                      : "text-brand-400"
+                      ? "text-[#00a86b] flex items-center gap-1"
+                      : "text-[#00a86b]"
                   }
                 >
                   {allVisited ? "✓ Completo" : `${progress}%`}
                 </span>
               </div>
-              <div className="w-full h-1.5 rounded bg-slate-700/50 overflow-hidden mt-2">
+              <div className="w-full h-1.5 rounded bg-white border border-black/20 overflow-hidden mt-2">
                 <motion.div
-                  className="h-full rounded"
-                  style={{
-                    background: "linear-gradient(90deg, #14b8a6, #2dd4bf)",
-                  }}
+                  className="h-full rounded bg-[#00a86b]"
                   initial={{ width: "0%" }}
                   animate={{ width: `${progress}%` }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
@@ -103,28 +98,28 @@ export function App() {
 
             <button
               onClick={handleRestart}
-              className="shrink-0 p-2.5 rounded-xl bg-slate-800/80 text-slate-300 hover:text-white border border-slate-700/50 hover:border-brand-500/40 transition-colors"
+              className="shrink-0 p-2.5 rounded-xl bg-transparent text-draft-subtext hover:text-draft-ink transition-colors transition-transform hover:scale-110"
               aria-label="Reiniciar estudo"
               title="Reiniciar estudo"
             >
-              <RotateCcw className="w-4 h-4" />
+              <img src="/icones/reset.png" alt="Reiniciar estudo" className="w-7 h-7" />
             </button>
 
             <button
               onClick={handleStartQuiz}
               disabled={!allVisited}
-              className="shrink-0 p-2.5 rounded-xl bg-slate-800/80 text-slate-300 hover:text-white border border-slate-700/50 hover:border-brand-500/40 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+              className="shrink-0 p-2.5 rounded-xl bg-transparent text-draft-subtext hover:text-draft-ink transition-colors transition-transform hover:scale-110 disabled:opacity-40 disabled:cursor-not-allowed"
               aria-label="Abrir quiz"
               title={allVisited ? "Fazer quiz" : "Complete o estudo para acessar o quiz"}
             >
-              <Brain className="w-4 h-4" />
+              <img src="/icones/quiz.png" alt="Abrir quiz" className="w-7 h-7" />
             </button>
           </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 flex overflow-hidden relative min-h-0">
+      <main className="flex-1 flex overflow-hidden relative min-h-0 bg-draft-paper">
         {/* Sidebar esquerda (desktop) */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -145,12 +140,12 @@ export function App() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="max-w-4xl w-full mb-3 sm:mb-4 lg:mb-5 text-center bg-slate-800/30 p-3 sm:p-5 rounded-2xl border border-slate-700/30 backdrop-blur-sm"
+             className="max-w-4xl w-full mb-3 sm:mb-4 lg:mb-5 text-center bg-[#FFFFFF] border border-black p-3 sm:p-5 rounded-2xl"
           >
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-slate-100 mb-2 sm:mb-3">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-2 sm:mb-3">
               Planta de Engenharia
             </h2>
-            <p className="text-slate-300 text-sm sm:text-base md:text-lg">
+            <p className="text-draft-subtext text-sm sm:text-base md:text-lg">
               Clique nos marcadores numerados sobre o diagrama do aparelho para estudar as especificações de cada módulo vital.
             </p>
           </motion.div>
@@ -168,10 +163,10 @@ export function App() {
             />
           </motion.div>
 
-          <div className="mt-2 sm:mt-3 text-center text-slate-500 text-xs sm:text-sm font-medium flex flex-col items-center px-4">
-            <span>Ref: Base de Design Industrial (Doc. Interno Treinamento)</span>
-            <span className="mt-1.5 bg-brand-900/40 text-brand-300 px-3 py-1 rounded-full text-xs border border-brand-700/50">
-              Módulo de Vendas Integrado
+          <div className="mt-4 sm:mt-6 text-center text-draft-subtext text-xs sm:text-sm font-medium flex flex-col items-center px-4">
+            <span>Desenvolvido e criado por Dark Morellato.</span>
+            <span className="mt-1.5 bg-[#FFFFFF] text-draft-accent px-3 py-1 rounded-full text-xs border border-black">
+              Miplace 2026
             </span>
           </div>
         </div>
@@ -190,7 +185,7 @@ export function App() {
       </main>
 
       {/* Player no canto inferior direito */}
-      <div className="fixed bottom-3 sm:bottom-4 right-3 sm:right-4 z-50">
+      <div className="fixed bottom-1 sm:bottom-1 right-3 sm:right-0 z-50 bg-[#7f7f7f] p-2 rounded-2xl border border-white/10 shadow-xl backdrop-blur-md scale-80">
         <AudioPlayer src="/mog.mp3" />
       </div>
 
@@ -222,7 +217,7 @@ export function App() {
       />
       <button
         onClick={() => setSidebarOpen(true)}
-        className="lg:hidden fixed top-16 left-3 z-30 w-10 h-10 flex items-center justify-center rounded-xl bg-slate-800/90 text-brand-400 border border-slate-700/50 shadow-lg backdrop-blur-md"
+        className="lg:hidden fixed top-16 left-3 z-30 w-10 h-10 flex items-center justify-center rounded-xl bg-draft-panel/90 text-draft-stroke border border-draft-stroke/50 shadow-lg backdrop-blur-md"
         aria-label="Abrir menu de componentes"
       >
         <Menu className="w-5 h-5" />
@@ -237,10 +232,10 @@ export function App() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 border border-brand-500/30 shadow-xl"
+            className="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 px-4 py-2 rounded-xl bg-draft-panel border border-draft-stroke/40 shadow-xl"
           >
-            <PartyPopper className="w-4 h-4 text-brand-400" />
-            <span className="text-sm font-semibold text-slate-200">{progressToast}</span>
+            <PartyPopper className="w-4 h-4 text-draft-accent" />
+            <span className="text-sm font-semibold text-draft-ink">{progressToast}</span>
           </motion.div>
         )}
       </AnimatePresence>

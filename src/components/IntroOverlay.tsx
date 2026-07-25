@@ -21,7 +21,7 @@ export function IntroOverlay({ show, onStart }: IntroOverlayProps) {
     <AnimatePresence>
       {show && (
         <motion.div
-          className="fixed inset-0 z-[100] bg-slate-900/90 backdrop-blur-md flex items-center justify-center p-6"
+          className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-md flex items-center justify-center p-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -32,31 +32,31 @@ export function IntroOverlay({ show, onStart }: IntroOverlayProps) {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.95, opacity: 0, y: 20 }}
             transition={{ type: 'spring', stiffness: 180, damping: 20 }}
-            className="max-w-2xl w-full glass-panel rounded-3xl p-8 md:p-12 relative"
+            className="max-w-2xl w-full bg-draft-paper rounded-3xl p-8 md:p-12 relative border border-slate-700"
           >
             <button
               onClick={onStart}
-              className="absolute top-5 right-5 p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-white transition-colors"
+              className="absolute top-5 right-5 p-2 rounded-lg bg-[#FFFFFF] text-black hover:text-[#4169e1] transition-colors border border-slate-700"
               aria-label="Fechar introdução"
             >
               <X className="w-5 h-5" />
             </button>
 
             <div className="flex items-center gap-3 mb-6">
-              <div className="flex items-center justify-center w-14 h-14 bg-brand-500/10 rounded-2xl border border-brand-500/30">
-                <Smartphone className="w-7 h-7 text-brand-400" />
+              <div className="flex items-center justify-center w-14 h-14 bg-[#FFFFFF] rounded-2xl border-2 border-black">
+                <Smartphone className="w-7 h-7 text-[#4169e1]" />
               </div>
               <div>
-                <p className="text-slate-500 text-sm font-medium uppercase tracking-wide">
+                <p className="text-black/70 text-sm font-medium uppercase tracking-wide">
                   Treinamento Técnico
                 </p>
-                <h1 className="text-2xl md:text-3xl font-bold text-white leading-tight">
+                <h1 className="text-2xl md:text-3xl font-bold text-black leading-tight">
                   Arquitetura de um Smartphone
                 </h1>
               </div>
             </div>
 
-            <p className="text-slate-300 text-base leading-relaxed mb-6">
+            <p className="text-black/80 text-base leading-relaxed mb-6">
               Bem-vindo(a)! Este treinamento interativo explica o funcionamento técnico de um
               smartphone e seus componentes principais, com argumentos de vendas integrados.
               Explore cada parte do dispositivo clicando nos marcadores numerados do diagrama.
@@ -81,7 +81,7 @@ export function IntroOverlay({ show, onStart }: IntroOverlayProps) {
             </div>
 
             <div className="space-y-2 mb-8">
-              <p className="text-sm font-semibold text-slate-300 mb-3">
+              <p className="text-sm font-semibold text-black mb-3">
                 O que você vai aprender:
               </p>
               {[
@@ -99,9 +99,9 @@ export function IntroOverlay({ show, onStart }: IntroOverlayProps) {
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.3 + i * 0.06 }}
-                  className="flex items-center gap-3 text-slate-300 text-sm"
+                  className="flex items-center gap-3 text-black text-sm"
                 >
-                  <span className="flex-shrink-0 w-5 h-5 rounded-full bg-brand-500/10 text-brand-400 text-xs font-mono flex items-center justify-center">
+                  <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#4169e1]/10 text-[#4169e1] text-xs font-mono font-bold flex items-center justify-center">
                     {i + 1}
                   </span>
                   {topic}
@@ -113,12 +113,12 @@ export function IntroOverlay({ show, onStart }: IntroOverlayProps) {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={onStart}
-              className="w-full py-4 bg-brand-500 text-white font-semibold rounded-xl hover:bg-brand-600 transition-colors text-lg shadow-lg shadow-brand-500/30"
+              className="w-full py-4 bg-[#4169e1] text-white font-semibold rounded-xl hover:bg-[#2444b4] transition-colors text-lg shadow-lg"
             >
               Iniciar Treinamento →
             </motion.button>
 
-            <div className="mt-6 flex items-center justify-center gap-2 text-xs text-slate-500">
+            <div className="mt-6 flex items-center justify-center gap-2 text-xs text-black/70">
               <Keyboard className="w-4 h-4" />
               <span>Dica: use as teclas ← → para navegar e ESC para fechar o painel</span>
             </div>
@@ -131,11 +131,11 @@ export function IntroOverlay({ show, onStart }: IntroOverlayProps) {
 
 function FeatureCard({ icon, title, desc }: { icon: React.ReactNode; title: string; desc: string }) {
   return (
-    <div className="flex items-center gap-3 p-3 bg-slate-800/50 rounded-xl border border-slate-700">
-      <span className="text-brand-400 flex-shrink-0">{icon}</span>
+    <div className="flex items-center gap-3 p-3 bg-[#FFFFFF] rounded-xl border border-slate-700">
+      <span className="text-[#4169e1] flex-shrink-0">{icon}</span>
       <div>
-        <p className="text-white text-sm font-medium">{title}</p>
-        <p className="text-slate-500 text-xs">{desc}</p>
+        <p className="text-black text-sm font-medium">{title}</p>
+        <p className="text-black/70 text-xs">{desc}</p>
       </div>
     </div>
   );

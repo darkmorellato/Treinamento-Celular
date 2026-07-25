@@ -35,7 +35,7 @@ export function CompletionScreen({ show, onClose, onRestart, onStartQuiz, traini
     <AnimatePresence>
       {show && (
         <motion.div
-          className="fixed inset-0 z-[100] bg-slate-900/90 backdrop-blur-md flex items-center justify-center p-6"
+          className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-md flex items-center justify-center p-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -46,11 +46,11 @@ export function CompletionScreen({ show, onClose, onRestart, onStartQuiz, traini
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 30 }}
             transition={{ type: 'spring', stiffness: 160, damping: 18 }}
-            className="max-w-lg w-full glass-panel rounded-3xl p-6 md:p-8 relative text-center overflow-hidden"
+            className="max-w-lg w-full bg-draft-paper rounded-3xl p-6 md:p-8 relative text-center overflow-hidden border border-slate-700"
           >
             <button
               onClick={onClose}
-              className="absolute top-5 right-5 p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-white transition-colors z-20"
+              className="absolute top-5 right-5 p-2 rounded-lg bg-[#FFFFFF] text-black hover:text-[#4169e1] transition-colors z-20 border border-slate-700"
               aria-label="Fechar"
             >
               <X className="w-5 h-5" />
@@ -80,26 +80,26 @@ export function CompletionScreen({ show, onClose, onRestart, onStartQuiz, traini
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2, type: 'spring', stiffness: 200, damping: 12 }}
-              className="inline-flex items-center justify-center w-20 h-20 bg-brand-500/20 rounded-full mb-5 border-4 border-brand-400/30"
+              className="inline-flex items-center justify-center w-20 h-20 bg-[#FFFFFF] rounded-full mb-5 border-4 border-black"
             >
-              <Trophy className="w-10 h-10 text-brand-400" />
+              <Trophy className="w-10 h-10 text-[#eab308]" />
             </motion.div>
 
-            <h2 className="text-2xl font-bold text-white mb-2">Treinamento Concluído!</h2>
-            <p className="text-slate-300 mb-5">
+            <h2 className="text-2xl font-bold text-black mb-2">Treinamento Concluído!</h2>
+            <p className="text-black/80 mb-5">
               Parabéns! Você explorou todos os componentes técnicos de um smartphone.
             </p>
 
-            <div className="bg-slate-800/50 rounded-2xl border border-slate-700 p-5 mb-5">
+            <div className="bg-[#FFFFFF] rounded-2xl border border-slate-700 p-5 mb-5">
               <div className="flex items-center justify-center gap-4 mb-4">
                 <div className="text-center">
-                  <span className="text-4xl font-bold text-success">100%</span>
-                  <span className="block text-xs text-slate-400 mt-1">concluído</span>
+                  <span className="text-4xl font-bold text-[#4169e1]">100%</span>
+                  <span className="block text-xs text-black/70 mt-1">concluído</span>
                 </div>
                 <div className="w-px h-10 bg-slate-700" />
                 <div className="text-center">
-                  <span className="text-2xl font-bold text-brand-300 font-mono">{formattedTime}</span>
-                  <span className="block text-xs text-slate-400 mt-1">tempo</span>
+                  <span className="text-2xl font-bold text-black font-mono">{formattedTime}</span>
+                  <span className="block text-xs text-black/70 mt-1">tempo</span>
                 </div>
               </div>
 
@@ -110,9 +110,11 @@ export function CompletionScreen({ show, onClose, onRestart, onStartQuiz, traini
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.4 + i * 0.05 }}
-                    className="flex items-center gap-2 text-sm text-slate-300"
+                    className="flex items-center gap-2 text-sm text-black"
                   >
-                    <CheckCircle2 className="w-4 h-4 text-success flex-shrink-0" />
+                    <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-green-500 flex-shrink-0">
+                    <CheckCircle2 className="w-3 h-3 text-white" />
+                  </span>
                     <span className="truncate">{comp.label.split(' (')[0]}</span>
                   </motion.div>
                 ))}
@@ -120,16 +122,20 @@ export function CompletionScreen({ show, onClose, onRestart, onStartQuiz, traini
 
               <div className="border-t border-slate-700/60 pt-3">
                 <div className="flex items-center gap-2 mb-2.5">
-                  <Award className="w-4 h-4 text-warning" />
-                  <span className="text-xs font-semibold text-slate-300 uppercase tracking-wide">Conquistas</span>
+                  <span className="inline-flex items-center justify-center w-4 h-4 rounded-full border-2 border-black bg-[#eab308]">
+                    <Award className="w-2.5 h-2.5 text-black" />
+                  </span>
+                  <span className="text-xs font-semibold text-black uppercase tracking-wide">Conquistas</span>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {components.map((comp) => (
-                    <span
-                      key={comp.id}
-                      className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-xs font-medium text-brand-300"
-                    >
-                      <Award className="w-3 h-3" />
+                  <span
+                    key={comp.id}
+                    className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-[#FFFFFF] border-2 border-black text-xs font-medium text-black"
+                  >
+                    <span className="inline-flex items-center justify-center w-4 h-4 rounded-full border-2 border-black bg-[#eab308]">
+                      <Award className="w-2.5 h-2.5 text-black" />
+                    </span>
                       {BADGE_TITLES[comp.id] || comp.label.split(' (')[0]}
                     </span>
                   ))}
@@ -137,7 +143,7 @@ export function CompletionScreen({ show, onClose, onRestart, onStartQuiz, traini
               </div>
             </div>
 
-            <p className="text-slate-400 text-sm mb-5">
+            <p className="text-black/70 text-sm mb-5">
               Você agora possui conhecimento técnico sólido sobre o funcionamento de smartphones e os
               argumentos de vendas de cada componente.
             </p>
@@ -147,7 +153,7 @@ export function CompletionScreen({ show, onClose, onRestart, onStartQuiz, traini
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={onRestart}
-                className="flex-1 flex items-center justify-center gap-2 py-2.5 bg-slate-800 text-white font-medium rounded-xl border border-slate-700 hover:border-brand-500/40 transition-colors"
+                className="flex-1 flex items-center justify-center gap-2 py-2.5 bg-[#FFFFFF] text-black font-medium rounded-xl border border-slate-700 hover:border-[#00ced1] transition-colors"
               >
                 <RotateCcw className="w-4 h-4" />
                 Refazer Treinamento
@@ -156,7 +162,7 @@ export function CompletionScreen({ show, onClose, onRestart, onStartQuiz, traini
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={onStartQuiz}
-                className="flex-1 flex items-center justify-center gap-2 py-2.5 bg-brand-500 text-white font-semibold rounded-xl hover:bg-brand-600 transition-colors"
+                className="flex-1 flex items-center justify-center gap-2 py-2.5 bg-[#4169e1] text-white font-semibold rounded-xl hover:bg-[#2444b4] transition-colors"
               >
                 Fazer Quiz
               </motion.button>
@@ -164,7 +170,7 @@ export function CompletionScreen({ show, onClose, onRestart, onStartQuiz, traini
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={onClose}
-                className="flex-1 py-2.5 bg-slate-800 text-white font-medium rounded-xl border border-slate-700 hover:border-brand-500/40 transition-colors"
+                className="flex-1 py-2.5 bg-[#FFFFFF] text-black font-medium rounded-xl border border-slate-700 hover:border-[#00ced1] transition-colors"
               >
                 Continuar Explorando
               </motion.button>

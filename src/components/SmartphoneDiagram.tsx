@@ -59,51 +59,37 @@ export function SmartphoneDiagram({ onHotspotClick, selectedId, visited }: Smart
       <div className="blueprint-wrapper w-full max-w-full">
         <svg
           viewBox="0 0 800 650"
-          className="drop-shadow-[0_0_25px_rgba(20,184,166,0.3)] block"
+          className="block"
           role="img"
           aria-label="Planta de engenharia técnica de um smartphone (vistas frontal, interna e inferior)"
+          preserveAspectRatio="xMidYMid meet"
         >
-          <defs>
-            <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="2" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-            <pattern id="grid-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(45, 212, 191, 0.05)" strokeWidth="1" />
-            </pattern>
-          </defs>
-
-          <rect width="100%" height="100%" fill="url(#grid-pattern)" />
-
           {/* Esquerda: Vista Frontal (Tela) */}
-          <g transform="translate(120, 50)" stroke="#2dd4bf" strokeWidth="1.5" fill="none" filter="url(#neon-glow)">
+          <g transform="translate(120, 50)" stroke="#2B2D42" strokeWidth="1.5" fill="none">
             <rect x="0" y="0" width="220" height="460" rx="35" strokeWidth="2" />
             <rect x="6" y="6" width="208" height="448" rx="29" strokeOpacity="0.7" />
-            <rect x="12" y="12" width="196" height="436" rx="24" fill="rgba(20, 184, 166, 0.03)" strokeWidth="1" />
-            <rect x="65" y="20" width="90" height="24" rx="12" fill="#0b1120" stroke="#2dd4bf" />
-            <circle cx="85" cy="32" r="5" fill="rgba(45, 212, 191, 0.2)" />
-            <circle cx="135" cy="32" r="3" fill="rgba(45, 212, 191, 0.2)" />
-            <rect x="25" y="60" width="170" height="100" rx="10" strokeDasharray="4 4" opacity="0.4" />
-            <circle cx="45" cy="80" r="10" opacity="0.4" />
-            <path d="M 65 75 L 150 75 M 65 85 L 120 85" strokeWidth="1" opacity="0.4" />
+            <rect x="12" y="12" width="196" height="436" rx="24" fill="rgba(43, 45, 66, 0.03)" strokeWidth="1" />
+            <rect x="65" y="20" width="90" height="24" rx="12" fill="#F5F3EB" stroke="#2B2D42" />
+            <circle cx="85" cy="32" r="5" fill="rgba(43, 45, 66, 0.08)" />
+            <circle cx="135" cy="32" r="3" fill="rgba(43, 45, 66, 0.08)" />
+            <rect x="25" y="60" width="170" height="100" rx="10" strokeDasharray="4 4" opacity="0.35" />
+            <circle cx="45" cy="80" r="10" opacity="0.35" />
+            <path d="M 65 75 L 150 75 M 65 85 L 120 85" strokeWidth="1" opacity="0.35" />
             <path d="M -2 100 L -2 140" strokeWidth="3" strokeLinecap="round" />
             <path d="M -2 150 L -2 190" strokeWidth="3" strokeLinecap="round" />
             <path d="M 222 120 L 222 170" strokeWidth="3" strokeLinecap="round" />
-            <text x="110" y="500" fill="#2dd4bf" stroke="none" fontFamily="monospace" fontSize="14" fontWeight="bold" textAnchor="middle" letterSpacing="1">
+            <text x="110" y="500" fill="#0fabee" stroke="none" fontFamily="monospace" fontSize="14" fontWeight="bold" textAnchor="middle" letterSpacing="1">
               VISTA FRONTAL (DISPLAY)
             </text>
           </g>
 
           {/* Direita: Vista Interna (Componentes) */}
-          <g transform="translate(460, 50)" stroke="#2dd4bf" strokeWidth="1.5" fill="none" filter="url(#neon-glow)">
+          <g transform="translate(460, 50)" stroke="#2B2D42" strokeWidth="1.5" fill="none">
             <rect x="0" y="0" width="220" height="460" rx="35" strokeWidth="2" />
             <rect x="6" y="6" width="208" height="448" rx="29" strokeOpacity="0.7" />
             <path
               d="M 15 15 L 205 15 L 205 180 L 130 180 L 130 240 L 15 240 Z"
-              fill="rgba(20, 184, 166, 0.05)"
+              fill="rgba(43, 45, 66, 0.04)"
               strokeDasharray="3 3"
             />
 
@@ -113,35 +99,35 @@ export function SmartphoneDiagram({ onHotspotClick, selectedId, visited }: Smart
             <circle cx="40" cy="45" r="6" strokeWidth="0.5" />
             <circle cx="75" cy="45" r="10" />
             <circle cx="58" cy="85" r="12" />
-            <circle cx="80" cy="70" r="4" fill="#2dd4bf" opacity="0.5" />
+            <circle cx="80" cy="70" r="4" fill="#2B2D42" opacity="0.25" />
 
             {/* Sistema de Resfriamento (Vapor Chamber) */}
             <path
               d="M 110 25 L 195 25 L 195 120 L 110 120 Z"
-              fill="rgba(56, 189, 248, 0.15)"
-              stroke="#38bdf8"
+              fill="rgba(43, 45, 66, 0.04)"
+              stroke="#2B2D42"
               strokeDasharray="2 2"
               strokeWidth="1"
             />
-            <path d="M 110 25 L 195 120 M 195 25 L 110 120" stroke="rgba(56, 189, 248, 0.2)" strokeWidth="1" />
+            <path d="M 110 25 L 195 120 M 195 25 L 110 120" stroke="rgba(43, 45, 66, 0.12)" strokeWidth="1" />
 
             {/* Processador SoC */}
-            <rect x="115" y="30" width="75" height="75" rx="5" strokeWidth="2" fill="#0b1120" />
-            <rect x="120" y="35" width="65" height="65" rx="3" fill="rgba(20, 184, 166, 0.1)" />
-            <text x="152" y="65" fill="#2dd4bf" stroke="none" fontFamily="monospace" fontSize="12" fontWeight="bold" textAnchor="middle">
+            <rect x="115" y="30" width="75" height="75" rx="5" strokeWidth="2" fill="#F5F3EB" />
+            <rect x="120" y="35" width="65" height="65" rx="3" fill="rgba(43, 45, 66, 0.05)" />
+            <text x="152" y="65" fill="#2B2D42" stroke="none" fontFamily="monospace" fontSize="12" fontWeight="bold" textAnchor="middle">
               SoC
             </text>
 
             {/* Chips de Memória (RAM/ROM) */}
-            <rect x="115" y="110" width="45" height="20" rx="2" strokeWidth="1.5" fill="rgba(20, 184, 166, 0.05)" />
-            <text x="137" y="123" fill="#2dd4bf" stroke="none" fontFamily="monospace" fontSize="8" textAnchor="middle">
+            <rect x="115" y="110" width="45" height="20" rx="2" strokeWidth="1.5" fill="rgba(43, 45, 66, 0.04)" />
+            <text x="137" y="123" fill="#2B2D42" stroke="none" fontFamily="monospace" fontSize="8" textAnchor="middle">
               RAM
             </text>
-            <rect x="165" y="110" width="25" height="35" rx="2" strokeWidth="1.5" fill="rgba(20, 184, 166, 0.05)" />
+            <rect x="165" y="110" width="25" height="35" rx="2" strokeWidth="1.5" fill="rgba(43, 45, 66, 0.04)" />
             <text
               x="177"
               y="128"
-              fill="#2dd4bf"
+              fill="#2B2D42"
               stroke="none"
               fontFamily="monospace"
               fontSize="8"
@@ -157,11 +143,11 @@ export function SmartphoneDiagram({ onHotspotClick, selectedId, visited }: Smart
             <circle cx="110" cy="210" r="15" strokeDasharray="2 2" strokeWidth="1.5" />
 
             {/* Bateria Grande */}
-            <rect x="25" y="260" width="115" height="175" rx="8" fill="rgba(20, 184, 166, 0.05)" strokeWidth="2" />
+            <rect x="25" y="260" width="115" height="175" rx="8" fill="rgba(43, 45, 66, 0.04)" strokeWidth="2" />
             <text
               x="82"
               y="340"
-              fill="#2dd4bf"
+              fill="#2B2D42"
               stroke="none"
               fontFamily="monospace"
               fontSize="16"
@@ -174,27 +160,27 @@ export function SmartphoneDiagram({ onHotspotClick, selectedId, visited }: Smart
 
             {/* Motor de Vibração */}
             <rect x="150" y="380" width="50" height="30" rx="4" strokeDasharray="2 2" />
-            <text x="175" y="398" fill="#2dd4bf" stroke="none" fontFamily="monospace" fontSize="8" textAnchor="middle">
+            <text x="175" y="398" fill="#2B2D42" stroke="none" fontFamily="monospace" fontSize="8" textAnchor="middle">
               TAPTIC
             </text>
 
             {/* Caixa Acústica */}
-            <rect x="25" y="440" width="170" height="15" rx="5" opacity="0.6" />
+            <rect x="25" y="440" width="170" height="15" rx="5" opacity="0.5" />
 
-            <text x="110" y="500" fill="#2dd4bf" stroke="none" fontFamily="monospace" fontSize="14" fontWeight="bold" textAnchor="middle" letterSpacing="1">
+            <text x="110" y="500" fill="#de8211" stroke="none" fontFamily="monospace" fontSize="14" fontWeight="bold" textAnchor="middle" letterSpacing="1">
               VISTA INTERNA (HARDWARE)
             </text>
           </g>
 
           {/* Base: Vista Inferior (Conectores) */}
-          <g transform="translate(290, 560)" stroke="#2dd4bf" strokeWidth="1.5" fill="none" filter="url(#neon-glow)">
+          <g transform="translate(290, 560)" stroke="#2B2D42" strokeWidth="1.5" fill="none">
             <rect x="0" y="0" width="220" height="26" rx="8" strokeWidth="2" />
             <rect x="90" y="7" width="40" height="12" rx="4" strokeWidth="1.5" />
-            <rect x="95" y="11" width="30" height="4" rx="2" fill="rgba(20,184,166,0.3)" />
+            <rect x="95" y="11" width="30" height="4" rx="2" fill="rgba(43, 45, 66, 0.12)" />
             <circle cx="75" cy="13" r="2.5" />
             <circle cx="145" cy="13" r="2.5" />
             <path d="M 25 13 L 55 13 M 165 13 L 195 13" strokeWidth="4" strokeDasharray="2 4" strokeLinecap="round" />
-            <text x="110" y="45" fill="#2dd4bf" stroke="none" fontFamily="monospace" fontSize="12" fontWeight="bold" textAnchor="middle">
+            <text x="110" y="45" fill="#157a2b" stroke="none" fontFamily="monospace" fontSize="12" fontWeight="bold" textAnchor="middle">
               INFERIOR (I/O)
             </text>
           </g>
@@ -214,12 +200,12 @@ export function SmartphoneDiagram({ onHotspotClick, selectedId, visited }: Smart
                 : isVisited
                   ? 'var(--color-brand-700)'
                   : 'var(--color-brand-500)';
-            const borderColor = isJustVisited ? 'var(--color-warning)' : '#fff';
+            const borderColor = isJustVisited ? 'var(--color-warning)' : '#fdfafadf';
 
             return (
               <motion.button
                 key={spot.id}
-                className="absolute flex items-center justify-center rounded-full font-bold text-white cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400"
+                className="absolute flex items-center justify-center rounded-full font-bold cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-400 text-white-300"
                 style={{
                   left: `${spot.x}%`,
                   top: `${spot.y}%`,
@@ -228,8 +214,8 @@ export function SmartphoneDiagram({ onHotspotClick, selectedId, visited }: Smart
                   backgroundColor: bg,
                   border: `2px solid ${borderColor}`,
                   boxShadow: isSelected
-                    ? '0 0 25px rgba(20, 184, 166, 1)'
-                    : '0 0 15px rgba(20, 184, 166, 0.8)',
+                    ? '0 0 25px rgb(212, 216, 235)'
+                    : '0 0 15px rgba(70, 70, 72, 0.8)',
                   transform: 'translate(-50%, -50%)',
                   zIndex: isSelected ? 20 : 10,
                   fontSize: '13px',
@@ -252,7 +238,7 @@ export function SmartphoneDiagram({ onHotspotClick, selectedId, visited }: Smart
                     className="absolute -right-1 -top-1 flex items-center justify-center rounded-full text-[9px] font-bold"
                     style={{
                       backgroundColor: isJustVisited ? '#eab308' : '#22c55e',
-                      color: '#0b1120',
+                      color: '#FFFFFF',
                       width: '16px',
                       height: '16px',
                     }}
@@ -271,15 +257,15 @@ export function SmartphoneDiagram({ onHotspotClick, selectedId, visited }: Smart
         <div
           className="absolute left-1/2 top-2 -translate-x-1/2 px-4 py-2 rounded-lg whitespace-nowrap pointer-events-none z-30"
           style={{
-            backgroundColor: 'rgba(15, 23, 42, 0.98)',
-            color: '#f8fafc',
+            backgroundColor: 'rgba(244, 245, 248, 0.98)',
+            color: '#e8ecef',
             fontSize: '0.875rem',
-            border: '1px solid rgba(45, 212, 191, 0.4)',
+            border: '1px solid rgba(8, 32, 69, 0.8)',
             boxShadow: '0 4px 12px rgba(0,0,0,0.5)',
           }}
         >
-          <span style={{ color: '#2dd4bf', fontWeight: 600 }}>{hovered.label}</span>
-          <span style={{ color: '#64748b', marginLeft: '0.5rem', fontSize: '0.75rem' }}>— clique para explorar</span>
+          <span style={{ color: '#4a80ec', fontWeight: 600 }}>{hovered.label}</span>
+          <span style={{ color: '#26262e', marginLeft: '0.5rem', fontSize: '0.75rem' }}>— clique para explorar</span>
         </div>
       )}
     </div>

@@ -10,29 +10,37 @@
   --color-accent: #14b8a6;
   --color-accent-glow: rgba(20, 184, 166, 0.8);
   --color-accent-soft: rgba(20, 184, 166, 0.1);
+  --color-draft-accent: #fa9108;
 
   --color-brand-50: #f0fdfa;
   --color-brand-100: #ccfbf1;
   --color-brand-200: #99f6e4;
   --color-brand-300: #5eead4;
   --color-brand-400: #2dd4bf;
-  --color-brand-500: #14b8a6;
+  --color-brand-500: #13c4e3;
   --color-brand-600: #0d9488;
-  --color-brand-700: #0f766e;
+  --color-brand-700: #0b0c0cc7;
   --color-brand-800: #115e59;
   --color-brand-900: #134e4a;
 
-  --color-text-primary: #f8fafc;
+  --color-text-primary: #fbfbfa;
   --color-text-secondary: #94a3b8;
   --color-text-muted: #64748b;
 
   --color-border: #334155;
+  --color-border-strong: #475569;
 
   --color-success: #22c55e;
   --color-warning: #eab308;
 
   --color-hotspot: #14b8a6;
   --color-hotspot-hover: #0f766e;
+
+  --color-draft-paper: #F5F3EB;
+  --color-draft-panel: #E8ECE8;
+  --color-draft-stroke: #5C7C8A;
+  --color-draft-ink: #2B2D42;
+  --color-draft-subtext: #6B7280;
 
   --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-family-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -120,21 +128,15 @@
   /* Container estilo blueprint de engenharia */
   .blueprint-container {
     position: relative;
-    background-color: var(--color-bg-blueprint);
-    border: 1px solid var(--color-border);
-    border-radius: 0.75rem;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    background-color: #f9f9f7;
     background-image:
-      linear-gradient(rgba(30, 58, 138, 0.15) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(30, 58, 138, 0.15) 1px, transparent 1px);
-    background-size: 30px 30px;
+      linear-gradient(to right, rgba(43, 45, 66, 0.10) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(43, 45, 66, 0.10) 1px, transparent 1px);
+    background-size: 20px 20px;
+    border: 1px solid var(--color-border-strong);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-lg);
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.5rem;
-    width: 100%;
-    max-width: 100%;
   }
 
   /* Wrapper que mantém a proporção exata da planta técnica */
@@ -142,7 +144,7 @@
     position: relative;
     width: 100%;
     max-width: 100%;
-    aspect-ratio: 800 / 650;
+    aspect-ratio: 8 / 6.5;
     margin: 0 auto;
     max-height: calc(100vh - 360px);
   }
@@ -185,6 +187,34 @@
   }
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+
+  .bg-draft-grid {
+    background-color: #F5F3EB;
+    background-image: 
+      linear-gradient(to right, rgba(92, 124, 138, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(92, 124, 138, 0.08) 1px, transparent 1px);
+    background-size: 16px 16px;
+  }
+
+  .bg-blueprint-grid {
+    background-color: #E8ECE8;
+    background-image: 
+      radial-gradient(rgba(92, 124, 138, 0.22) 1px, transparent 1px);
+    background-size: 14px 14px;
+  }
+
+  @keyframes border-glow-green {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(110, 152, 87, 0.45);
+    }
+    50% {
+      box-shadow: 0 0 0 4px rgba(110, 152, 87, 0.15);
+    }
+  }
+
+  .animate-border-glow-green {
+    animation: border-glow-green 1.8s ease-in-out infinite;
   }
 }
 

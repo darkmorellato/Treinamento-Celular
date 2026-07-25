@@ -56,7 +56,7 @@ export function App() {
   };
 
   return (
-    <div className="flex flex-col h-full font-sans antialiased overflow-x-hidden w-full max-w-[1400px] mx-auto">
+    <div className="flex flex-col h-full font-sans antialiased overflow-x-hidden w-full mx-auto">
       {/* Header */}
       <header className="sticky top-0 z-20 p-2 sm:p-3 shadow-lg border-b bg-[#fdfdfd] border-draft-stroke/40 backdrop-blur-md">
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
@@ -140,7 +140,7 @@ export function App() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-             className="max-w-4xl w-full mb-3 sm:mb-4 lg:mb-5 text-center bg-[#FFFFFF] border border-black p-3 sm:p-5 rounded-2xl"
+             className="w-full mb-3 sm:mb-4 lg:mb-5 text-center bg-[#FFFFFF] border border-black p-3 sm:p-5 rounded-2xl"
           >
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-2 sm:mb-3">
               Planta de Engenharia

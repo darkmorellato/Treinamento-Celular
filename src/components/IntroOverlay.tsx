@@ -21,7 +21,7 @@ export function IntroOverlay({ show, onStart }: IntroOverlayProps) {
     <AnimatePresence>
       {show && (
         <motion.div
-          className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-md flex items-center justify-center p-6"
+          className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -32,7 +32,7 @@ export function IntroOverlay({ show, onStart }: IntroOverlayProps) {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.95, opacity: 0, y: 20 }}
             transition={{ type: 'spring', stiffness: 180, damping: 20 }}
-            className="max-w-2xl w-full bg-draft-paper rounded-3xl p-6 sm:p-8 md:p-12 relative border border-slate-700 max-h-[90vh] overflow-y-auto"
+            className="max-w-2xl w-full max-h-[88dvh] overflow-y-auto bg-draft-paper rounded-3xl p-6 sm:p-8 md:p-12 relative border border-slate-700 mx-auto"
           >
             <button
               onClick={onStart}

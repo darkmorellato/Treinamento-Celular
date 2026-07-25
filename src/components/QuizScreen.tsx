@@ -96,7 +96,7 @@ export function QuizScreen({ questions, onClose, onRestartTraining }: QuizScreen
     >
       <motion.div
         ref={focusTrapRef}
-        className="max-w-[58rem] w-full bg-draft-paper rounded-3xl p-6 sm:p-8 relative max-h-[95vh] overflow-hidden flex flex-col border border-slate-700"
+        className="max-w-[58rem] w-full max-h-[92dvh] overflow-hidden flex flex-col bg-draft-paper rounded-3xl p-5 sm:p-6 md:p-8 relative border border-slate-700 mx-auto"
         initial={{ scale: 0.95, opacity: 0, y: 20 }}
         animate={{ scale: 1, opacity: 1, y: 0 }}
         exit={{ scale: 0.95, opacity: 0, y: 20 }}
